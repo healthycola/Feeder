@@ -16,7 +16,7 @@
                        TextWrapping="Wrap"/>
         </DataTemplate>
 
-        <vm:NPRViewModel x:Key="MainViewModel"/>
+        <vm:NPRListViewModel x:Key="MainViewModel"/>
         <MenuFlyout x:Key="FeederLeftMenuFlyout"/>
     </UserControl.Resources>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Name="MainGrid">
@@ -26,7 +26,7 @@
         </Grid.RowDefinitions>
 
         <ListBox ItemsSource="{Binding Path=Feeds}"
-                 ItemTemplate="{StaticResource FeedTemplate}" Grid.Row="0" />
+                 ItemTemplate="{StaticResource FeedTemplate}" Grid.Row="0" Name="FeedList" DoubleTapped="ItemDoubleTapped"/>
         <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Center">
         <Button Content="Feed Type" >
             <Button.Flyout>
@@ -36,7 +36,7 @@
                 </MenuFlyout>
             </Button.Flyout>
         </Button >
-            <Button Content="Add New Feed"></Button>
+            <Button Content="Add New Feed" Tapped="AddNewFeed"></Button>
             <Button Content="Speak" Click="StartCortanaTalk"></Button>
         </StackPanel>
     </Grid>

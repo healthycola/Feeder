@@ -10,12 +10,12 @@ using Windows.UI.Popups;
 
 namespace Feeder.ViewModel
 {
-    class NPRViewModel : BaseFeedViewModel
+    class NPRListViewModel : BaseFeedListViewModel
     {
-        public void NPRFeeds()
+        public async void NPRFeeds()
         {
             IModelBase model = new NPRModel();
-            model.GetItems(async (feedItems, error) =>
+            await model.GetItems(async (feedItems, error) =>
             {
                 if (error != null)
                 {
@@ -49,7 +49,7 @@ namespace Feeder.ViewModel
             }
         }
 
-        public NPRViewModel()
+        public NPRListViewModel()
         {
             if (Windows.ApplicationModel.DesignMode.DesignModeEnabled)
             {

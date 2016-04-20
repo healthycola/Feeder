@@ -10,7 +10,7 @@ namespace Feeder.Model
     {
         void Initialize();
 
-        void GetItems(Action<IEnumerable<FeedItem>, Exception> callback);
+        Task GetItems(Action<IEnumerable<FeedItem>, Exception> callback);
 
         void GetNItems(int n, Action<IEnumerable<FeedItem>, Exception> callback);
     }

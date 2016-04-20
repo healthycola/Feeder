@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Feeder.ViewModel
 {
-    class BaseFeedViewModel : BaseViewModel
+    class BaseFeedListViewModel : BaseViewModel
     {
         public const string FeedsPropertyName = "Feeds";
 

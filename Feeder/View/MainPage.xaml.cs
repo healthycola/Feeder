@@ -1,4 +1,5 @@
 ﻿using Feeder.Model;
+using Feeder.View;
 using Feeder.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace Feeder
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        BaseViewModel viewModel = null;
+        BaseFeedListViewModel viewModel = null;
 
         public MainPage()
         {
@@ -35,19 +36,31 @@ namespace Feeder
 
         private void NPRButtonClick(object sender, RoutedEventArgs e)
         {
-            viewModel = new NPRViewModel();
+            viewModel = new NPRListViewModel();
             MainGrid.DataContext = viewModel;
         }
 
         private void RSSButtonClick(object sender, RoutedEventArgs e)
         {
-            viewModel = new RSSViewModel();
+            viewModel = new RSSListViewModel();
             MainGrid.DataContext = viewModel;
         }
 
         private void StartCortanaTalk(object sender, RoutedEventArgs e)
         {
             
+        }
+
+        private void AddNewFeed(object sender, TappedRoutedEventArgs e)
+        {
+        }
+
+        private void ItemDoubleTapped(object sender, DoubleTappedRoutedEventArgs e)
+        {
+            if (FeedList.SelectedIndex >= 0 && viewModel.Feeds.Count > FeedList.SelectedIndex)
+            {
+                Frame.Navigate(typeof(FeedDetailView), viewModel.Feeds[FeedList.SelectedIndex]);
+            }
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Feeder.Model
 
         }
 
-        async void IModelBase.GetItems(Action<IEnumerable<FeedItem>, Exception> callback)
+        async Task IModelBase.GetItems(Action<IEnumerable<FeedItem>, Exception> callback)
         {
             HttpResponseMessage response = await _client.GetAsync(Parameters);
 
